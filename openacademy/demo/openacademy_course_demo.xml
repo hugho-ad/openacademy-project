@@ -1,0 +1,30 @@
+<openerp>
+    <data>
+        <!-- xml file para inserciones en la base de datos -->
+
+        <record model="openacademy.course" id="course0"> 
+        <!-- esto es un registro con id = course0, tabla openacademy.course (in postgres
+        openacademy_course )-->
+            <field name="name">Course 0</field> <!-- con atributo name se indica el campo a insertar 'name' -->
+            <field name="description">Course 0's description
+
+Can have multiple lines
+            </field><!-- Otro campo de la tabla -->
+        </record>
+
+
+       <!-- otra insercion--> 
+        <record model="openacademy.course" id="course1">
+            <field name="name">Course 1 </field>
+            <!-- No description for this one -->
+        </record>
+
+
+        <!--one more -->
+        <record model="openacademy.course" id="course2">
+            <field name="name">Course 2</field>
+            <field name="description">Course 2's description </field>
+        </record>
+
+    </data>
+</openerp>

@@ -6,9 +6,9 @@ This is a module that create the model of Course
 """
 
 class Course(models.Model):
-"""
-This class create a model class of Course
-"""
+    """
+    This class create a model class of Course
+    """
     _name = 'openacademy.course' # String tomado por odoo 
                                  #para crear tabla en postgres
 
