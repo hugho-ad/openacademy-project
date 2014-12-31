@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <!--Datos a insetar en odoo_curso, datos de vistas, views , acctions-->
+    <data>
+        <record model ="ir.ui.view" id="course_form_view"> <!--Tabla para almacenar las vistas -->
+            <field name="name">course.form.view</field> <!--Nombre de la vista -->
+            <field name="model">openacademy.course</field><!-- Modelo relacionado con la vista (Creado anteriormente en models folder)-->
+            <field name="arch" type="xml"> <!-- Campo para almacenar el xml de la vista-->
+
+                <!--xml a guardar en el campo arch  de la tabla ir_iu_view -->
+                <form string="Course Form">
+                    <sheet> <!--a kind of table -->
+                        <group> <!-- agrupando dos campos-->
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first course
+                </p>
+            </field>
+        </record>
+
+            <!-- top level menu: no parent -->
+        <menuitem id="main_openacademy_menu" name="Open Academy"/>
+            <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="openacademy_menu" name="Open Academy"
+                  parent="main_openacademy_menu"/>
+            <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+        <menuitem id="courses_menu" name="Courses" parent="openacademy_menu"
+                  action="course_list_action"/>
+            <!-- Full id location:
+             action="openacademy.course_list_action"
+             It is not required when it is the same module -->
+
+    </data>
+</openerp>
