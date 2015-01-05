@@ -14,3 +14,5 @@ class Course(models.Model):
 
     name = fields.Char(string="Title", required=True) # Campo a generarse en la tabla _name
     description = fields.Text()# campo de tipo Text para almacenar strings multilineas
+    responsible_id = fields.Many2one("res.users",
+                                    ondelete='set null',string="Responsible", index=True)
