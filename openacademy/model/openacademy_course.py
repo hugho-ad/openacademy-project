@@ -13,4 +13,4 @@ class Course(models.Model):
                                  #para crear tabla en postgres
 
     name = fields.Char(string="Title", required=True) # Campo a generarse en la tabla _name
-    description = fields.Text()
+    description = fields.Text()# campo de tipo Text para almacenar strings multilineas
