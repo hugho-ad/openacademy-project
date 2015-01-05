@@ -16,3 +16,4 @@ class Course(models.Model):
     description = fields.Text()# campo de tipo Text para almacenar strings multilineas
     responsible_id = fields.Many2one("res.users",
                                     ondelete='set null',string="Responsible", index=True)
+    sessions_ids = fields.One2many('openacademy.session','course_id',string="Sessions")
