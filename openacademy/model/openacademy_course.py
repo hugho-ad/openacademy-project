@@ -12,10 +12,10 @@ class Course(models.Model):
     _name = 'openacademy.course' # String tomado por odoo 
                                  #para crear tabla en postgres
 
-    name = fields.Char(string="Title", required=True) # Campo a generarse en la tabla _name
+    name = fields.Char(string="Titulo", required=True) # Campo a generarse en la tabla _name
     description = fields.Text()# campo de tipo Text para almacenar strings multilineas
     responsible_id = fields.Many2one("res.users",
-                                    ondelete='set null',string="Responsible", index=True)
+                                    ondelete='set null',string="Responsable", index=True)
     sessions_ids = fields.One2many('openacademy.session','course_id',string="Sessions")
     _sql_constraints = [
         ('name_description_check',
