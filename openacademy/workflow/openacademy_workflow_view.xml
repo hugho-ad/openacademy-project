@@ -8,27 +8,64 @@
             <field name="on_create">True</field>
         </record>
 
-        <!--Start definitions of activities for the wkf main-->
+        <!--Start definitions of activities and server actions for the wkf main-->
+
+        <!--*******Server actions Draft*******************-->
+        <record model="ir.actions.server" id="set_session_to_draft">
+            <field name="name">Set session to Draft</field>
+            <field name="model_id" ref="model_openacademy_session"/>
+            <field name="code">
+recs = self.browse(cr, uid, context['active_ids'], context=context)
+recs.action_draft()
+            </field>
+        </record>
+        <!--*******Activity Draft *******************-->
         <record model="workflow.activity" id="activity_draft">
             <field name="name">Draft</field>
             <field name="wkf_id" ref="wkf_session"/>
             <field name="flow_start" eval="True"/>
-            <field name="kind">function</field>
-            <field name="action">action_draft()</field>
+            <field name="kind">dummy</field>
+            <field name="action"></field>
+            <field name="action_id" ref="set_session_to_draft"/>
         </record>
+
+        <!--*******Server actions Confirmed*******************-->
+        <record model="ir.actions.server" id="set_session_to_confirmed">
+            <field name="name">Set session to Confirmed</field>
+            <field name="model_id" ref="model_openacademy_session"/>
+            <field name="code">
+recs = self.browse(cr, uid, context['active_ids'], context=context)
+recs.action_confirm()
+            </field>
+        </record>
+        <!--*******Activity Confirmed*******************-->
         <record model="workflow.activity" id="activity_confirmed">
             <field name="name">Confirmed</field>
             <field name="wkf_id" ref="wkf_session"/>
-            <field name="kind">function</field>
-            <field name="action">action_confirm()</field>
+            <field name="kind">dummy</field>
+            <field name="action"></field>
+            <field name="action_id" ref="set_session_to_confirmed"/>
         </record>
+
+        <!--*******Server actions Done*******************-->
+        <record model="ir.actions.server" id="set_session_to_done">
+            <field name="name">Set session to Done</field>
+            <field name="model_id" ref="model_openacademy_session"/>
+            <field name="code">
+recs = self.browse(cr, uid, context['active_ids'], context=context)
+recs.action_done()
+            </field>
+        </record>
+        <!--*******Activity Done*******************-->
         <record model="workflow.activity" id="activity_done">
             <field name="name">Done</field>
             <field name="wkf_id" ref="wkf_session"/>
-            <field name="kind">function</field>
-            <field name="action">action_done()</field>
+            <field name="kind">dummy</field>
+            <field name="action"></field>
+            <field name="action_id" ref="set_session_to_done"/>
         </record>
         <!--END definitions of activities for the wkf main-->
+
 
         <!--Start definitions of transition (links between activities)-->
         <record model="workflow.transition" id="session_draft_to_confirmed">
