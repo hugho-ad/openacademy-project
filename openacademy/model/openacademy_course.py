@@ -1,4 +1,4 @@
-from openerp import api,models,fields
+from openerp import api,models,fields, _
 
 
 """
