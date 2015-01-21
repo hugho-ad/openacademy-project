@@ -62,7 +62,7 @@
         </record>
 
         <!-- session Calendar view -->
-        <record model="ir.ui.view" id="session_calendar__view">
+        <record model="ir.ui.view" id="session_calendar_view">
             <field name="name">session.calendar</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
